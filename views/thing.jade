@@ -1,0 +1,14 @@
+doctype html
+html
+    head
+        link(href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css", rel="stylesheet")
+    body
+        ul.nav.nav-tabs
+            li.active
+                a(href="/things") Things
+            li
+                a(href="/people") People
+        .container
+            h1 Thing
+            .well= thing.name
+            
