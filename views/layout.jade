@@ -4,10 +4,8 @@ html
         link(href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css", rel="stylesheet")
     body
         ul.nav.nav-tabs
-            li
-                a(href="/") Home
-            li
-                a(href="/things") Things
-            li
-                a(href="/people") People
+            for tab in tabs
+                li(class={active: tab.title == selected })
+                    a(href="/#{tab.name}")= tab.title
+
         block content
