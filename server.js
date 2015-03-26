@@ -50,12 +50,16 @@ app.use(function(req, res, next){
     });
 });
 
+var thingsRouter = express.Router();
+
+app.use("/things", thingsRouter);
+
 app.get("/", function(req, res){ // request, response
     res.render("index", {tabs : tabs, selected : "Home"});
     
 });
 
-app.get("/things", function(req, res, next){ // request, response
+thingsRouter.get("/", function(req, res, next){ // request, response
     
     // fs.readFile("data/data.js", function(err, dataStream){
     //     if(err){
@@ -77,7 +81,7 @@ app.use(function(req, res, next){
     next();
 });
 
-app.get("/things/:id", function(req, res){ // request, response
+thingsRouter.get("/:id", function(req, res){ // request, response
     var thing = _.find(res.locals.data.things, function(thing){
         return thing.id == req.params.id;
     });
